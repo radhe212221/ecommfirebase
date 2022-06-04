@@ -9,3 +9,9 @@ export const transform = payload => {
     }
     return temp
 }
+
+
+export const uniqueTags = a => {
+    let b = Array.from(new Set(a.map(x => x.tags)))
+    return b.map(x => ({ name: x, count: a.filter(y => y.tags === x)?.length }))
+}
