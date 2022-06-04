@@ -1,0 +1,59 @@
+*
+{
+    margin:0;
+    padding:0;
+    border:0;
+    text-decoration: none;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+input,button,a
+{
+    padding: 10px;
+}
+body
+{
+    background-color: slateblue;
+}
+
+header{
+    line-height: 10vh;
+    background-color: black;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+aside
+{
+    position: fixed;
+    top:30vh;
+    background-color:black;
+    overflow: auto;
+    width: 200px;
+    color:white;
+    transition:0.3s;
+    transform: translateX(-100%);
+}
+aside.active
+{
+    transform: translateX(0%);
+}
+
+aside div
+{
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid white;
+}
+
+footer
+{
+    padding: 10px;
+    background-color: black;
+    color:white;
+    text-align: center;
+}

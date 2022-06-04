@@ -14,6 +14,7 @@ const intialState = {
 }
 export default function reducer(state = intialState, action) {
     switch (action.type) {
+        case "products": return { ...state, products: action.payload }
         default: return state
     }
 }
