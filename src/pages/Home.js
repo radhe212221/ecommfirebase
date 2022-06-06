@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { uniqueTags } from '../utils'
 import Product from '../comp/Product'
 export default function HomePage() {
+  const [start, setstart] = useState(0)
+  const [pp, setpp] = useState(7)
   const state = useSelector(s => s)
   const dispatch = useDispatch()
 
@@ -22,6 +24,7 @@ export default function HomePage() {
     // dispatch({ type: "tagname", payload: value })
 
   }
+  const a = (new Array(Math.ceil(products.length / pp))).fill(0)
   return (
     <div>
       <div className='filters'>
@@ -33,8 +36,11 @@ export default function HomePage() {
         </div>
         <div>{uniqueTags(products).map(x => <button onClick={handleTagname(x.name)}>{x.name} {x.count}</button>)}</div>
       </div>
+      <div className='filters'>
+        {a.map((x, i) => <button onClick={() => setstart(i * pp)} className={start === i * pp ? 'active' : ''}>{i + 1}</button>)}
+      </div>
       <div className='products'>
-        {products?.map(x => <Product key={x.id} data={x} />)}
+        {products?.slice(start, start + pp).map(x => <Product key={x.id} data={x} />)}
       </div>
     </div >
   )
