@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { uniqueTags } from '../utils'
 import Product from '../comp/Product'
-export default function Home() {
+export default function HomePage() {
   const state = useSelector(s => s)
   const dispatch = useDispatch()
 
@@ -10,16 +10,16 @@ export default function Home() {
 
 
   const handleClick = (_col, _order) => {
-    dispatch({ type: "sort", payload: { col: _col, order: _order } })
+    // dispatch({ type: "sort", payload: { col: _col, order: _order } })
   }
 
   const handleChange = e => {
     let { value } = e.target
-    dispatch({ type: "search", payload: value })
+    // dispatch({ type: "search", payload: value })
   }
 
   const handleTagname = value => {
-    dispatch({ type: "tagname", payload: value })
+    // dispatch({ type: "tagname", payload: value })
 
   }
   return (
@@ -34,7 +34,7 @@ export default function Home() {
         <div>{uniqueTags(products).map(x => <button onClick={handleTagname(x.name)}>{x.name} {x.count}</button>)}</div>
       </div>
       <div className='products'>
-        {products?.map(x => <Product key={x.id} {...x} />)}
+        {products?.map(x => <Product key={x.id} data={x} />)}
       </div>
     </div >
   )
