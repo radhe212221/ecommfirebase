@@ -14,9 +14,9 @@ export default function Product(props) {
       </div>
       <div className='discount'>{data.discount} % off</div>
       <div className='tags'>{data.tags}</div>
-      <div className='cart-btn'>
+      {false && <div className='cart-btn'>
         <i className='fa fa-shopping-cart'></i>
-      </div>
+      </div>}
     </div>
   )
 }
