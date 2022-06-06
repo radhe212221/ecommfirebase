@@ -41,7 +41,6 @@ export default function App() {
         <Route path="/Orders" element={<Orders />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/Checkout" element={<Checkout />} />
-        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

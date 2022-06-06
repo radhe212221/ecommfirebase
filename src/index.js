@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { createStore } from 'redux';
 import reducer from './reducer';
@@ -13,9 +13,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={createStore(reducer)}>
-    <App />
-    <ToastContainer />
-  </Provider>
+  <StrictMode>
+    <Provider store={createStore(reducer)}>
+      <App />
+      <ToastContainer />
+    </Provider>
+  </StrictMode>
 );
 
