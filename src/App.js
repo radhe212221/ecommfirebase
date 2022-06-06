@@ -19,7 +19,7 @@ export default function App() {
   const load = () => {
     _get("/products.json")
       .then(d => {
-        dispatch({ type: "products", payload: d.slice(0, 10) })
+        dispatch({ type: "products", payload: d })
       })
 
     if (state.loggedin) {
