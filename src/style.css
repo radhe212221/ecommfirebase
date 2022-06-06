@@ -57,3 +57,93 @@ footer
     color:white;
     text-align: center;
 }
+.products
+{
+    
+}
+.products .item
+{
+    width: 12%;
+    display: inline-table;
+    margin:1%;
+    padding: 1%;
+    background-color: white;
+    box-shadow: 0 10px 10px black;
+    position: relative;
+}
+.products .item img
+{
+    width: 100%;
+}
+.products .item .discount
+{
+    background-color: yellow;
+    position: absolute;
+    top:50%;
+    right:0;
+    padding: 10px;
+}
+.products .item .tags
+{
+    background-color:black;
+    color:white;
+    position: absolute;
+    top:0%;
+    left:0;
+    padding: 10px;
+}
+.products .item .cart-btn
+{
+    background-color:black;
+    color:white;
+    position: absolute;
+    bottom:0%;
+    right:0;
+    padding: 10px;
+}
+
+.filters
+{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.filters button.active
+{
+    background-color: black;
+    color:white;
+}
+
+
+@media (max-width:1220px)
+{
+    .products .item
+    {
+        width: 12%;
+    }
+}
+@media (max-width:820px)
+{
+    .products .item
+    {
+        width: 23%;
+    }
+}
+@media (max-width:420px)
+{
+    .filters{
+        flex-flow: column;
+    }
+    .products .item
+    {
+        width: 40%;
+    }
+}
+
+
+
+
+
+
+
+
