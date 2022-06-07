@@ -12,6 +12,7 @@ import Orders from './pages/Orders'
 import Profile from './pages/Profile'
 import Checkout from './pages/Checkout'
 import { useDispatch, useSelector } from 'react-redux'
+import Loader from './comp/Loader'
 export default function App() {
   const state = useSelector(s => s)
   const dispatch = useDispatch()
@@ -31,19 +32,22 @@ export default function App() {
 
   useEffect(load, [])
   return (
-    <BrowserRouter>
-      <Header />
-      <Switch>
-        <Route exact path={["/", "/home"]} component={Home} />
-        <Route exact path="/Login" component={Login} />
-        <Route exact path="/Signup" component={Signup} />
-        <Route exact path="/Cart" component={Cart} />
-        <Route exact path="/Orders" component={Orders} />
-        <Route exact path="/Profile" component={Profile} />
-        <Route exact path="/Checkout" component={Checkout} />
-        <Route component={ErrorPage} />
-      </Switch>
-      <Footer />
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route exact path={["/", "/home"]} component={Home} />
+          <Route exact path="/Login" component={Login} />
+          <Route exact path="/Signup" component={Signup} />
+          <Route exact path="/Cart" component={Cart} />
+          <Route exact path="/Orders" component={Orders} />
+          <Route exact path="/Profile" component={Profile} />
+          <Route exact path="/Checkout" component={Checkout} />
+          <Route component={ErrorPage} />
+        </Switch>
+        <Footer />
+      </BrowserRouter>
+      <Loader loading={state?.loader} />
+    </>
   )
 }
