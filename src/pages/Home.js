@@ -12,12 +12,12 @@ export default function HomePage() {
 
 
   const handleClick = (_col, _order) => {
-    // dispatch({ type: "sort", payload: { col: _col, order: _order } })
+    dispatch({ type: "sort", payload: { col: _col, order: _order } })
   }
 
   const handleChange = e => {
     let { value } = e.target
-    // dispatch({ type: "search", payload: value })
+    dispatch({ type: "search", payload: value })
   }
 
   const handleTagname = value => {

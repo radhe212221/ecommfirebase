@@ -13,6 +13,7 @@ const intialState = {
     loader: false,
 }
 export default function reducer(state = intialState, action) {
+    console.log(action)
     switch (action.type) {
         case "products": return { ...state, products: action.payload }
         case "sort": return { ...state, col: action.payload.col, order: action.payload.order }
