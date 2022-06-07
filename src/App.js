@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { _get } from './services'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Header from './comp/Header'
 import Footer from './comp/Footer'
 import ErrorPage from './pages/ErrorPage'
@@ -33,15 +33,15 @@ export default function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Signup" element={<Signup />} />
-        <Route path="/Cart" element={<Cart />} />
-        <Route path="/Orders" element={<Orders />} />
-        <Route path="/Profile" element={<Profile />} />
-        <Route path="/Checkout" element={<Checkout />} />
-      </Routes>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Login" component={Login} />
+        <Route exact path="/Signup" component={Signup} />
+        <Route exact path="/Cart" component={Cart} />
+        <Route exact path="/Orders" component={Orders} />
+        <Route exact path="/Profile" component={Profile} />
+        <Route exact path="/Checkout" component={Checkout} />
+      </Switch>
       <Footer />
     </BrowserRouter>
   )
