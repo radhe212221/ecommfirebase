@@ -34,7 +34,7 @@ export default function HomePage() {
         <div>
           <input placeholder='search' value={search} onChange={handleChange} />
         </div>
-        <div>{uniqueTags(products).map(x => <button onClick={handleTagname(x.name)}>{x.name} {x.count}</button>)}</div>
+        <div>{uniqueTags(products).map(x => <button onClick={() => handleTagname(x.name)}>{x.name} {x.count}</button>)}</div>
       </div>
       <div className='filters'>
         {a.map((x, i) => <button onClick={() => setstart(i * pp)} className={start === i * pp ? 'active' : ''}>{i + 1}</button>)}
