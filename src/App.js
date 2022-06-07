@@ -34,7 +34,7 @@ export default function App() {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path={["/", "/home"]} component={Home} />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Signup" component={Signup} />
         <Route exact path="/Cart" component={Cart} />
