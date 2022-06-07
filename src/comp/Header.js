@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   const [menu, setmenu] = useState(false)
@@ -11,13 +12,13 @@ export default function Header() {
         </div>
       </header>
       <aside className={menu ? "active" : ""}>
-        <div>home</div>
-        <div>profile</div>
-        <div>wishlist</div>
-        <div>login</div>
-        <div>signup</div>
-        <div>cart</div>
-        <div>orders</div>
+        <div><Link to="/home">home</Link></div>
+        <div><Link to="/profile">profile</Link></div>
+        <div><Link to="/wishlist">wishlist</Link></div>
+        <div><Link to="/login">login</Link></div>
+        <div><Link to="/signup">signup</Link></div>
+        <div><Link to="/cart">cart</Link></div>
+        <div><Link to="/orders">orders</Link></div>
       </aside>
     </>
   )

@@ -41,6 +41,7 @@ export default function App() {
         <Route exact path="/Orders" component={Orders} />
         <Route exact path="/Profile" component={Profile} />
         <Route exact path="/Checkout" component={Checkout} />
+        <Route component={ErrorPage} />
       </Switch>
       <Footer />
     </BrowserRouter>
