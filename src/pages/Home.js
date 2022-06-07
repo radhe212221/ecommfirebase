@@ -21,7 +21,7 @@ export default function HomePage() {
   }
 
   const handleTagname = value => {
-    // dispatch({ type: "tagname", payload: value })
+    dispatch({ type: "tagname", payload: value })
 
   }
   const a = (new Array(Math.ceil(products.length / pp))).fill(0)
