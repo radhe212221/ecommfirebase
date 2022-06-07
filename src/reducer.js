@@ -10,7 +10,7 @@ const intialState = {
     order: true,
     search: '',
     tagname: '',
-    loader: true,
+    loader: false,
 }
 export default function reducer(state = intialState, action) {
     switch (action.type) {
