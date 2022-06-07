@@ -18,15 +18,15 @@ export default function App() {
   const dispatch = useDispatch()
 
   const load = () => {
+    dispatch({ type: "loader.1" })
     _get("/products.json")
       .then(d => {
         dispatch({ type: "products", payload: d })
       })
-
-    if (state.loggedin) {
-
-    }
-
+      .catch(e => console.log("err", e))
+      .finally(()=>{
+        dispatch({type:"loader.0"})
+      })
 
   }
 

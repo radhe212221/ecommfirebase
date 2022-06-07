@@ -18,6 +18,8 @@ export default function reducer(state = intialState, action) {
         case "sort": return { ...state, col: action.payload.col, order: action.payload.order }
         case "search": return { ...state, search: action.payload }
         case "tagname": return { ...state, tagname: action.payload }
+        case "loader.1": return { ...state, loader: true }
+        case "loader.0": return { ...state, loader: false }
         default: return state
     }
 }
