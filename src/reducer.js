@@ -1,11 +1,13 @@
+import { parseCookie } from './utils'
+console.log("lkjlkjlkj", parseCookie("user"))
 const intialState = {
     products: [],
     tags: [],
     cart: [],
     orders: [],
     filters: ["old", "new", "rating", "discount", "tags"],
-    user: null,
-    loggedin: false,
+    user: parseCookie("user"),
+    loggedin: !!parseCookie("user"),
     col: "id",
     order: true,
     search: '',
