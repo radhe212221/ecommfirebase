@@ -30,6 +30,13 @@ header{
     z-index: 1000;
     padding:0 20px;
 }
+header .header-options
+{
+    display: inline-flex;
+}
+header .header-options a{
+    color:white;
+}
 aside a
 {
     color:white;
