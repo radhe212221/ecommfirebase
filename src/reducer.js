@@ -21,6 +21,7 @@ export default function reducer(state = intialState, action) {
         case "tagname": return { ...state, tagname: action.payload }
         case "loader.1": return { ...state, loader: true }
         case "loader.0": return { ...state, loader: false }
+        case "login": return { ...state, ...action.payload }
         default: return state
     }
 }
