@@ -1,5 +1,4 @@
 import { parseCookie } from './utils'
-console.log("lkjlkjlkj", parseCookie("user"))
 const intialState = {
     products: [],
     tags: [],
@@ -18,6 +17,8 @@ export default function reducer(state = intialState, action) {
     console.log(action)
     switch (action.type) {
         case "products": return { ...state, products: action.payload }
+        case "cart": return { ...state, cart: action.payload }
+        case "orders": return { ...state, orders: action.payload }
         case "sort": return { ...state, col: action.payload.col, order: action.payload.order }
         case "search": return { ...state, search: action.payload }
         case "tagname": return { ...state, tagname: action.payload }

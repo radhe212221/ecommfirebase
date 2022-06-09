@@ -35,3 +35,11 @@ export const parseCookie = key => {
     }
     return JSON.parse(getCookie(key))
 }
+
+export const thisUserData = (data) => {
+    let user = parseCookie("user")
+    if (user) {
+        return data.filter(x => x.uid === user?.id)
+    }
+    return []
+}

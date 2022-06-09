@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function Header() {
   const [menu, setmenu] = useState(false)
   const state = useSelector(s => s)
-  const { loggedin, user } = state
+  const { loggedin, user, cart, orders } = state
   return (
     <>
       <header>
@@ -17,8 +17,8 @@ export default function Header() {
 
           {loggedin && <Link to="/profile">profile</Link>}
           {loggedin && <Link to="/wishlist">wishlist</Link>}
-          {loggedin && <Link to="/cart">cart</Link>}
-          {loggedin && <Link to="/orders">orders</Link>}
+          {loggedin && <Link to="/cart">cart ({cart?.length || 0})</Link>}
+          {loggedin && <Link to="/orders">orders ({orders?.length || 0})</Link>}
         </div>
         {loggedin && <div>
           <button>logout ({user?.name})</button>

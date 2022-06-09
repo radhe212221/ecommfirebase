@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { _get } from './services'
+import { thisUserData } from './utils'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './comp/Header'
 import Footer from './comp/Footer'
@@ -18,16 +19,25 @@ export default function App() {
   const dispatch = useDispatch()
 
   const load = () => {
-    dispatch({ type: "loader.1" })
-    _get("/products.json")
-      .then(d => {
-        dispatch({ type: "products", payload: d })
-      })
-      .catch(e => console.log("err", e))
-      .finally(() => {
+    const boot = async () => {
+      dispatch({ type: "loader.1" })
+      try {
+        let products = await _get("products.json")
+        let cart = await _get("cart.json")
+        let orders = await _get("orders.json")
+        dispatch({ type: "products", payload: products })
+        dispatch({ type: "cart", payload: thisUserData(cart) })
+        dispatch({ type: "orders", payload: thisUserData(orders) })
+      }
+      catch (e) {
+        console.log(`something went wrong :: ${e}`)
+      }
+      finally {
         dispatch({ type: "loader.0" })
-      })
+      }
+    }
 
+    boot()
   }
 
   useEffect(load, [])
