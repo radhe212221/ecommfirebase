@@ -43,3 +43,9 @@ export const thisUserData = (data) => {
     }
     return []
 }
+export const checkinCart = (a, uid, pid) => {
+    return a.some(x => x.uid === uid && x.pid === pid)
+}
+export const findCart = (a, uid, pid) => {
+    return a.find(x => x.uid === uid && x.pid === pid)
+}   
