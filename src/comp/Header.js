@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { deleteCookie } from '../utils'
 export default function Header() {
+  const dispatch = useDispatch()
   const [menu, setmenu] = useState(false)
+  const navigate = useNavigate()
   const state = useSelector(s => s)
+
   const { loggedin, user, cart, orders } = state
+  const logout = () => {
+    deleteCookie("user")
+    dispatch({ type: "logout" })
+    navigate("/login")
+  }
   return (
     <>
       <header>
@@ -20,7 +28,7 @@ export default function Header() {
           {loggedin && <Link to="/cart">cart ({cart?.length || 0})</Link>}
           {loggedin && <Link to="/orders">orders ({orders?.length || 0})</Link>}
         </div>
-        {loggedin && <div>
+        {loggedin && <div onClick={logout}>
           <a>logout ({user?.name})</a>
         </div>}
       </header>
