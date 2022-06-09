@@ -52,7 +52,7 @@ export default function Cart() {
 
   return (
     <div className='container wrapper'>
-      <h1>total cart ?</h1>
+      <h1>total cart ({cart?.length || 0})</h1>
       <Table dataSource={dataSource} columns={columns} />;
     </div>
   )
