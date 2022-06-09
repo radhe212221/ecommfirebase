@@ -2,11 +2,13 @@ import { Table } from 'antd';
 import React, { useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import 'antd/dist/antd.css';
-import { _patch, _delete } from '../services'
+import { _patch, _delete, _post } from '../services'
 import { toast } from 'react-toastify';
+import { thisUserData } from '../utils';
 export default function Cart() {
   const state = useSelector(s => s)
-  const { cart } = state
+  let { cart } = state
+  cart = thisUserData(cart)
   const dispatch = useDispatch()
   const dataSource = state?.
     cart?.
@@ -49,9 +51,20 @@ export default function Cart() {
       })
   }
 
+  const checkout = async () => {
+    dispatch({ type: "loader.1" })
+    let cart1 = cart
+    let cart2 = cart
+    for (let item of cart1) {
+      let r2 = await _delete(`cart/${item?.id}.json`)
+      let r1 = await _post("orders.json", item)
+    }
+    dispatch({ type: "loader.0" })
+  }
 
   return (
     <div className='container wrapper'>
+      <button onClick={checkout}>checkout</button>
       <h1>total cart ({cart?.length || 0})</h1>
       <Table dataSource={dataSource} columns={columns} />;
     </div>
