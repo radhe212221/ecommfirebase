@@ -33,7 +33,17 @@ export default function Header() {
         </div>}
       </header>
       <aside className={menu ? "active" : ""}>
+        <Link to="/home">home</Link>
+        {!loggedin && <Link to="/login">login</Link>}
+        {!loggedin && <Link to="/signup">signup</Link>}
 
+        {loggedin && <Link to="/profile">profile</Link>}
+        {loggedin && <Link to="/wishlist">wishlist</Link>}
+        {loggedin && <Link to="/cart">cart ({cart?.length || 0})</Link>}
+        {loggedin && <Link to="/orders">orders ({orders?.length || 0})</Link>}
+        {loggedin && <div onClick={logout}>
+          <a>logout ({user?.name})</a>
+        </div>}
       </aside>
     </>
   )
