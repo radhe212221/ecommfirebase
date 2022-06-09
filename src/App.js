@@ -25,9 +25,9 @@ export default function App() {
         let products = await _get("products.json")
         let cart = await _get("cart.json")
         let orders = await _get("orders.json")
-        dispatch({ type: "products", payload: products })
-        dispatch({ type: "cart", payload: thisUserData(cart) })
-        dispatch({ type: "orders", payload: thisUserData(orders) })
+        dispatch({ type: "products", payload: (products || []) })
+        dispatch({ type: "cart", payload: thisUserData(cart || []) })
+        dispatch({ type: "orders", payload: thisUserData(orders || []) })
       }
       catch (e) {
         console.log(`something went wrong :: ${e}`)

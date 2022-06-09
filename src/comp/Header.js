@@ -21,7 +21,7 @@ export default function Header() {
           {loggedin && <Link to="/orders">orders ({orders?.length || 0})</Link>}
         </div>
         {loggedin && <div>
-          <button>logout ({user?.name})</button>
+          <a>logout ({user?.name})</a>
         </div>}
       </header>
       <aside className={menu ? "active" : ""}>
